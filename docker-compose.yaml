@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.28
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: 'super-app'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  node-app:
+    build:
+      context: ./node
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_NAME: super-app
+      DATABASE_USER: root
+      DATABASE_PASSWORD: password
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  php-app:
+    build:
+      context: ./php
+    container_name: php-app
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+volumes:
+  mysql-data:
+
+networks:
+  app-network:
+    driver: bridge
