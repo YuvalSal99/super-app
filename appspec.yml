@@ -5,9 +5,10 @@ files:
     destination: /home/ubuntu/app
 hooks:
   AfterInstall:
-    - location: scripts/set-permissions.sh
+    - location: scripts/deploy.sh
       timeout: 300
       runas: ubuntu
-    - location: scripts/deploy.sh
+       AfterInstall:
+    - location: scripts/set-permissions.sh
       timeout: 300
       runas: ubuntu
