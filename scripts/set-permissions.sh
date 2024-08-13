@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod +x /home/ubuntu/app/scripts/deploy.sh
+sudo chmod +x /home/ubuntu/app/scripts/deploy.sh
