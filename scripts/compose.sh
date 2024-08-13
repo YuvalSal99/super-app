@@ -1,2 +1,7 @@
 #!/bin/bash
-docker-compose up -d
+
+WORKDIR="/home/ubuntu/app/scripts"
+
+cd $WORKDIR
+
+docker compose up -d
