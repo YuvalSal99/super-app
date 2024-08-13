@@ -9,6 +9,6 @@ hooks:
       timeout: 300
       runas: ubuntu
        AfterInstall:
-    - location: scripts/set-permissions.sh
+    - location: scripts/compose.sh
       timeout: 300
       runas: ubuntu
