@@ -8,3 +8,5 @@ hooks:
     - location: scripts/deploy.sh
       timeout: 300
       runas: ubuntu
+       script:
+        - chmod +x /home/ubuntu/app/scripts/deploy.sh
